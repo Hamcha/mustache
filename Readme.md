@@ -1,6 +1,6 @@
-Fork of [hoisie/mustache](https://github.com/hoisie/mustache).
+Fork of [hoisie/mustache](/hoisie/mustache).
 
-This fork is purpose-specific (for maud), feedback is appreciated but what's gone is gone.
+This fork is purpose-specific (for [maud](/Hamcha/maud)), feedback is appreciated but what's gone is gone.
 
 TODO:
 

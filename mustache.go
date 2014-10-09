@@ -56,7 +56,7 @@ var (
 func (tmpl *Template) readString(s string) (string, error) {
 	i := tmpl.p
 	newlines := 0
-	for true {
+	for {
 		//are we at the end of the string?
 		if i+len(s) > len(tmpl.data) {
 			return tmpl.data[tmpl.p:], io.EOF
@@ -155,16 +155,6 @@ func (tmpl *Template) parseSection(section *sectionElement) error {
 				return parseError{tmpl.curline, "interleaved closing tag: " + name}
 			} else {
 				return nil
-			}
-		case '=':
-			if tag[len(tag)-1] != '=' {
-				return parseError{tmpl.curline, "Invalid meta tag"}
-			}
-			tag = strings.TrimSpace(tag[1 : len(tag)-1])
-			newtags := strings.SplitN(tag, " ", 2)
-			if len(newtags) == 2 {
-				tmpl.otag = newtags[0]
-				tmpl.ctag = newtags[1]
 			}
 		case '{':
 			if tag[len(tag)-1] == '}' {
